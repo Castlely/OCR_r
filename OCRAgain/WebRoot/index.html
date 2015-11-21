@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css"/>
+<script type="text/javascript" src="ext/ext-base.js"></script>
+<script type="text/javascript" src="ext/ext-all.js"></script>
+  <style type="text/css">
+        html, body {
+            font: normal 12px verdana;
+            margin: 0;
+            padding: 0;
+            border: 0 none;
+            text-align:center;
+            margin-top: 200px;
+            
+        }
+ .main{   
+  width:100%;   
+  text-align:center;   
+  vertical-align:center;   
+ }   
+    
+.login{   
+  margin-left:auto;   
+  margin-right:auto;   
+  text-align:center;   
+  width:500px;   
+  height:200px;   
+ }   
+    </style>
+<script type="text/javascript">
+
+Ext.onReady(function()   
+{   
+    Ext.QuickTips.init();   
+       
+    var loginForm=new Ext.FormPanel   
+    ({   
+        standardSubmit: true,  
+        region:'center',  
+        url:'action/login.jsp',   
+        renderTo:document.body,
+        frame:true,   
+        title:'用户登陆',   
+        width:400,   
+        items:[   
+            {   
+                xtype:'textfield',   
+                fieldLabel:' 用户名 ',   
+                name:'uname',   
+                width:180,   
+                   
+                allowBlank:false,   
+                blankText:'用户名不能为空',   
+                minLength:6,   
+                minLengthText:'用户名的长度为[6-20]',   
+                maxLength:20,   
+                maxLengthText:'用户名的长度为[6-20]'  
+                   
+            },   
+            {   
+                xtype: 'textfield',      
+                inputType:'password',    
+                fieldLabel:'密 &nbsp; &nbsp;码',   
+                name:'pwd',   
+                width:180,   
+                   
+                allowBlank:false,   
+                blankText:'密码不能为空',   
+                minLength:6,   
+                minLengthText:'密码的长度为[6-20]',   
+                maxLength:20,   
+                maxLengthText:'密码的长度为[6-20]'  
+            }  
+        ],   
+        buttons: [   
+            {    
+                text: '登录',    
+                type:'button',   
+                handler:function()   
+                {   
+                    if (!loginForm.getForm().isValid()) return;   
+                    loginForm.getForm().submit();   
+  
+                }     
+            }   
+        ]   
+           
+    });   
+}   
+); 
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
